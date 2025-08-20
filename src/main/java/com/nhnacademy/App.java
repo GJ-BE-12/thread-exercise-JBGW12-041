@@ -19,12 +19,9 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Hello world!
- *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
+public class App {
+    public static void main(String[] args) {
         Counter counter = new Counter();
 
         Runnable task = () -> {
@@ -39,7 +36,4 @@ public class App
         threadA.start();
         threadB.start();
     }
-
-
-
 }

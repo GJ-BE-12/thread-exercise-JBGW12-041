@@ -27,7 +27,7 @@ public class Counter {
             if (lock.tryLock()) {
                 try {
                     count++;
-                    log.debug("{} count++ : {}", Thread.currentThread().getName(), count );
+                    log.debug("{} count++ : {}", Thread.currentThread().getName(), count);
                     break;
                 } finally {
                     lock.unlock();
