@@ -16,12 +16,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class App {
-
     private static final Object resource1 = new Object();
     private static final Object resource2 = new Object();
 
     public static void main(String[] args) {
-
         // TODO#1 Thread-1 가 resource1의 접근 권한을 획득하기 위해 대기 합니다.
         Thread thread1 = new Thread(() -> {
             synchronized (resource1) {
