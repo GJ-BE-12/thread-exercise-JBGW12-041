@@ -30,7 +30,7 @@ public class Counter {
         this.count = 0;
     }
 
-    public void run() throws InterruptedException {
+    public void run() {
 
         do {
 
@@ -38,8 +38,12 @@ public class Counter {
               Thread.sleep method를 사용하세요.
               https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html#sleep(java.time.Duration)
             */
-            Thread.sleep(1000);
-            
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
             count++;
 
             /*TODO#5 count 출력
@@ -47,7 +51,7 @@ public class Counter {
                 Thread name : Thread.currentThread().getName();
                 ex) name:my-thread, count:1
              */
-            System.out.printf("name: %s, count: %d%n", Thread.currentThread().getName(), count);
+            log.debug("name: {}, count: {}", Thread.currentThread().getName(), count);
 
         } while (count < countMaxSize);
     }
